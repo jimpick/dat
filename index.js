@@ -1,1 +1,1 @@
-module.exports = require('dat-node')
+module.exports = require('@jimpick/dat-node')

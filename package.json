@@ -1,6 +1,6 @@
 {
-  "name": "dat",
-  "version": "13.11.3",
+  "name": "@jimpick/dat-multiwriter-staging",
+  "version": "13.11.3-1",
   "description": "Dat is the package manager for data. Easily share and version control data.",
   "keywords": [
     "dat",
@@ -11,7 +11,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "dat": "bin/cli.js"
+    "dat-multiwriter-staging": "bin/cli.js"
   },
   "scripts": {
     "auth-server": "DEBUG=* node scripts/auth-server.js",
@@ -37,6 +37,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "@jimpick/dat-node": "^3.5.11-1",
     "bytes": "^3.0.0",
     "chalk": "^2.0.0",
     "cli-truncate": "^1.0.0",
@@ -45,7 +46,6 @@
     "dat-json": "^1.0.0",
     "dat-link-resolve": "^2.2.0",
     "dat-log": "^1.2.0",
-    "dat-node": "^3.5.11",
     "dat-registry": "^4.0.0",
     "debug": "^3.0.0",
     "neat-log": "^2.4.0",

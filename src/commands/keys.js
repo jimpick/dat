@@ -22,7 +22,7 @@ module.exports = {
 }
 
 function keys (opts) {
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var parseArgs = require('../parse-args')
   var debug = require('debug')('dat')
 

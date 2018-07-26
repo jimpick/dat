@@ -10,7 +10,7 @@ module.exports = {
 }
 
 function status (opts) {
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var neatLog = require('neat-log')
   var statusUI = require('../ui/status')
   var onExit = require('../lib/exit')

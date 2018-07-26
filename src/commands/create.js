@@ -20,7 +20,7 @@ module.exports = {
 function create (opts) {
   var path = require('path')
   var fs = require('fs')
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var output = require('neat-log/output')
   var DatJson = require('dat-json')
   var prompt = require('prompt')

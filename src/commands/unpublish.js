@@ -19,7 +19,7 @@ module.exports = {
 function unpublish (opts) {
   var prompt = require('prompt')
   var path = require('path')
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var output = require('neat-log/output')
   var chalk = require('chalk')
   var DatJson = require('dat-json')

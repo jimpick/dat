@@ -33,7 +33,7 @@ function clone (opts) {
   var fs = require('fs')
   var path = require('path')
   var rimraf = require('rimraf')
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var linkResolve = require('dat-link-resolve')
   var neatLog = require('neat-log')
   var archiveUI = require('../ui/archive')

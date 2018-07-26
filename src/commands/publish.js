@@ -18,7 +18,7 @@ module.exports = {
 
 function publish (opts) {
   var path = require('path')
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var encoding = require('dat-encoding')
   var output = require('neat-log/output')
   var prompt = require('prompt')

@@ -50,7 +50,7 @@ module.exports = {
 }
 
 function sync (opts) {
-  var Dat = require('dat-node')
+  var Dat = require('@jimpick/dat-node')
   var neatLog = require('neat-log')
   var archiveUI = require('../ui/archive')
   var selectiveSync = require('../lib/selective-sync')
