@@ -48,6 +48,7 @@ function clone (opts) {
   opts.dir = parsed.dir
   opts.showKey = opts['show-key'] // using abbr in option makes printed help confusing
   opts.sparse = opts.empty
+  opts.legacy = true
 
   debug('clone()')
 

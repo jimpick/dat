@@ -41,6 +41,7 @@ function share (opts) {
   if (!opts.dir) {
     opts.dir = parseArgs(opts).dir || process.cwd()
   }
+  opts.legacy = true
 
   debug('Sharing archive', opts)
 

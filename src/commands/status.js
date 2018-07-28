@@ -22,6 +22,7 @@ function status (opts) {
     opts.dir = parseArgs(opts).dir || process.cwd()
   }
   opts.createIfMissing = false // sync must always be a resumed archive
+  opts.legacy = true
 
   var neat = neatLog(statusUI, { logspeed: opts.logspeed, quiet: opts.quiet, debug: opts.debug })
   neat.use(onExit)

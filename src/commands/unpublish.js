@@ -41,6 +41,7 @@ function unpublish (opts) {
   }
 
   opts.createIfMissing = false // unpublish dont try to create new one
+  opts.legacy = true
   Dat(opts.dir, opts, function (err, dat) {
     if (err) return exitErr(err)
     // TODO better error msg for non-existing archive

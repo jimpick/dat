@@ -51,6 +51,7 @@ function create (opts) {
 
   // Force certain options
   opts.errorIfExists = true
+  opts.legacy = true
 
   console.log(welcome)
   Dat(opts.dir, opts, function (err, dat) {

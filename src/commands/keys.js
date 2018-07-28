@@ -31,6 +31,7 @@ function keys (opts) {
     opts.dir = parseArgs(opts).dir || process.cwd()
   }
   opts.createIfMissing = false // keys must always be a resumed archive
+  opts.legacy = true
 
   Dat(opts.dir, opts, function (err, dat) {
     if (err && err.name === 'MissingError') return exit('Sorry, could not find a dat in this directory.')
