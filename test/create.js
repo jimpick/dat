@@ -2,7 +2,7 @@ var fs = require('fs')
 var path = require('path')
 var test = require('tape')
 var tempDir = require('temporary-directory')
-var Dat = require('dat-node')
+var Dat = require('@jimpick/dat-node')
 var spawn = require('./helpers/spawn.js')
 var help = require('./helpers')
 

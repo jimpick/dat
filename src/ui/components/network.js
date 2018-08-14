@@ -9,7 +9,7 @@ function networkUI (state) {
   var stats = state.stats
 
   if (!network) return ''
-  var peers = stats && stats.peers.total || 0 // FIXME
+  var peers = (stats && stats.peers.total) || 0 // FIXME
   // var complete = stats.peers.complete
   return output(`
     ${peers} ${pluralize('connection', peers)} ${speedUI()}

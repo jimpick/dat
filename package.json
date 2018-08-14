@@ -37,6 +37,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "@jimpick/dat-log": "^1.2.0-1",
     "@jimpick/dat-node": "^3.5.11-4",
     "bytes": "^3.0.0",
     "chalk": "^2.0.0",
@@ -45,7 +46,6 @@
     "dat-encoding": "^5.0.1",
     "dat-json": "^1.0.0",
     "dat-link-resolve": "^2.2.0",
-    "dat-log": "^1.2.0",
     "dat-registry": "^4.0.0",
     "debug": "^3.0.0",
     "neat-log": "^2.4.0",
