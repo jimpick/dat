@@ -15,7 +15,7 @@ module.exports = {
     }
   ],
   command: function (opts) {
-    var log = require('dat-log')
+    var log = require('@jimpick/dat-log')
     log(opts)
   }
 }
