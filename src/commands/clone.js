@@ -25,6 +25,12 @@ module.exports = {
       default: false,
       abbr: 'k',
       help: 'print out the dat key'
+    },
+    {
+      name: 'staging-new-format',
+      boolean: true,
+      default: false,
+      help: 'experimental multiwriter support'
     }
   ]
 }
@@ -49,6 +55,7 @@ function clone (opts) {
   opts.showKey = opts['show-key'] // using abbr in option makes printed help confusing
   opts.sparse = opts.empty
   opts.legacy = true
+  opts.stagingNewFormat = opts['staging-new-format']
 
   debug('clone()')
 
@@ -114,7 +121,12 @@ function clone (opts) {
           if (createdDirectory) rimraf.sync(dat.path)
           return bus.emit('exit:error', err)
         }
-        if (dat.writable) return bus.emit('exit:warn', 'Archive is writable. Cannot clone your own archive =).')
+        if (!opts.stagingNewFormat && dat.writable) {
+          return bus.emit(
+            'exit:warn',
+            'Archive is writable. Cannot clone your own archive =).'
+          )
+        }
 
         state.dat = dat
         state.title = 'Cloning'

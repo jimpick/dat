@@ -20,7 +20,7 @@ function archiveUI (state) {
   if (!state.warnings) state.warnings = []
 
   var dat = state.dat
-  var stats = dat.stats.get()
+  var stats = dat.stats ? dat.stats.get() : {} // FIXME
   var title = (state.dat.resumed) ? '' : `Created new dat in ${dat.path}${path.sep}.dat\n`
   var progressView
 

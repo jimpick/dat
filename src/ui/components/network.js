@@ -9,13 +9,14 @@ function networkUI (state) {
   var stats = state.stats
 
   if (!network) return ''
-  var peers = stats.peers.total || 0
+  var peers = stats && stats.peers.total || 0 // FIXME
   // var complete = stats.peers.complete
   return output(`
     ${peers} ${pluralize('connection', peers)} ${speedUI()}
   `)
 
   function speedUI () {
+    if (!state.stats) return '' // FIXME
     var output = '| '
     var speed = state.stats.network
     var upSpeed = speed.uploadSpeed || 0

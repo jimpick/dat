@@ -13,7 +13,10 @@ module.exports = function (state, bus) {
     state.writable = state.dat.writable
     state.joinNetwork = !(state.joinNetwork === false)
 
-    stats(state, bus)
+    if (!state.opts.stagingNewFormat) {
+      // FIXME
+      stats(state, bus)
+    }
     if (state.joinNetwork) network(state, bus)
     if (state.opts.http) serve(state, bus)
 
