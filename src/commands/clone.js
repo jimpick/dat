@@ -28,6 +28,7 @@ module.exports = {
     },
     {
       name: 'staging-new-format',
+      alias: ['new'],
       boolean: true,
       default: false,
       help: 'experimental multiwriter support'
