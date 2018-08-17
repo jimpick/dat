@@ -77,6 +77,7 @@ function sync (opts) {
     state.opts = opts
     selectiveSync(state, opts)
     Dat(opts.dir, opts, function (err, dat) {
+      if (dat.archive.db) state.opts.stagingNewFormat = true
       if (err && err.name === 'MissingError') return bus.emit('exit:warn', 'No existing archive in this directory.')
       if (err) return bus.emit('exit:error', err)
 
