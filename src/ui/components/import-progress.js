@@ -10,7 +10,9 @@ function importUI (state) {
   var importState = state.importer
   var indexSpeed = importState.indexSpeed ? `(${pretty(importState.indexSpeed)}/s)` : ''
 
-  if (importState.count && !importState.count.done) {
+  if (importState.hyperdb) {
+    return 'No import files info, using hyperdb.'
+  } else if (importState.count && !importState.count.done) {
     // dry run in progress
     if (!importState.count.files) return 'Checking for file updates...'
     return output(`
