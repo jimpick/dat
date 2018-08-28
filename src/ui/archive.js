@@ -27,6 +27,7 @@ function archiveUI (state) {
   if (state.writable || state.opts.showKey) {
     title += `${keyEl(dat.key)}\n`
   }
+  if (dat.archive) title += `Format: ${dat.archive.db ? 'multiwriter': 'legacy'}\n`
   if (state.title) title += state.title
   else if (state.writable) title += 'Sharing dat'
   else title += 'Downloading dat'
