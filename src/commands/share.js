@@ -25,6 +25,13 @@ module.exports = {
       boolean: true,
       default: true,
       help: 'Watch for changes and import updated files.'
+    },
+    {
+      name: 'staging-new-format',
+      alias: ['new'],
+      boolean: true,
+      default: false,
+      help: 'experimental multiwriter support'
     }
   ]
 }
@@ -42,6 +49,7 @@ function share (opts) {
     opts.dir = parseArgs(opts).dir || process.cwd()
   }
   opts.legacy = true
+  opts.stagingNewFormat = opts['staging-new-format']
 
   debug('Sharing archive', opts)
 
@@ -53,6 +61,7 @@ function share (opts) {
     state.opts = opts
 
     Dat(opts.dir, opts, function (err, dat) {
+      if (dat.archive.db) state.opts.stagingNewFormat = true
       if (err && err.name === 'IncompatibleError') return bus.emit('exit:warn', 'Directory contains incompatible dat metadata. Please remove your old .dat folder (rm -rf .dat)')
       else if (err) return bus.emit('exit:error', err)
       if (!dat.writable && !opts.shortcut) return bus.emit('exit:warn', 'Archive not writable, cannot use share. Please use sync to resume download.')

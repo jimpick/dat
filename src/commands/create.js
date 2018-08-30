@@ -13,6 +13,13 @@ module.exports = {
       default: false,
       abbr: 'y',
       help: 'Skip dat.json creation.'
+    },
+    {
+      name: 'staging-new-format',
+      alias: ['new'],
+      boolean: true,
+      default: false,
+      help: 'experimental multiwriter support'
     }
   ]
 }
@@ -32,6 +39,7 @@ function create (opts) {
   if (!opts.dir) {
     opts.dir = parseArgs(opts).dir || process.cwd()
   }
+  opts.stagingNewFormat = opts['staging-new-format']
 
   var welcome = `Welcome to ${chalk.green(`dat`)} program!`
   var intro = output(`

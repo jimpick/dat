@@ -1,6 +1,6 @@
 {
   "name": "@jimpick/dat-multiwriter-staging",
-  "version": "13.11.3-11",
+  "version": "13.11.3-12",
   "description": "Dat is the package manager for data. Easily share and version control data.",
   "keywords": [
     "dat",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@jimpick/dat-log": "^1.2.0-2",
-    "@jimpick/dat-node": "^3.5.11-14",
+    "@jimpick/dat-node": "^3.5.11-15",
     "bytes": "^3.0.0",
     "chalk": "^2.0.0",
     "cli-truncate": "^1.0.0",
