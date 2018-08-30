@@ -10,7 +10,7 @@ function trackImport (state, bus) {
     var progress = state.dat.importFiles(state.opts, function (err) {
       if (err) return bus.emit('exit:error', err)
       state.importer.fileImport = null
-      if (!progress.hyperdb) state.exiting = true
+      state.exiting = true
       bus.emit('render')
     })
     state.importer = xtend({
@@ -20,7 +20,6 @@ function trackImport (state, bus) {
       indexSpeed: progress.indexSpeed
     }, progress)
     bus.emit('dat:importer')
-    if (progress.hyperdb) return // For multiwriter
 
     var counting = setInterval(function () {
       // Update file count in progress counting (for big dirs)
