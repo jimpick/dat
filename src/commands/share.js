@@ -48,7 +48,6 @@ function share (opts) {
   if (!opts.dir) {
     opts.dir = parseArgs(opts).dir || process.cwd()
   }
-  opts.legacy = true
   opts.stagingNewFormat = opts['staging-new-format']
 
   debug('Sharing archive', opts)

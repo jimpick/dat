@@ -50,7 +50,6 @@ function publish (opts) {
   }
 
   opts.createIfMissing = false // publish must always be a resumed archive
-  opts.legacy = true
   Dat(opts.dir, opts, function (err, dat) {
     if (err && err.name === 'MissingError') return exitErr('No existing dat in this directory. Create a dat before publishing.')
     else if (err) return exitErr(err)

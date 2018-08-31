@@ -21,6 +21,9 @@ Info:
    dat log                     log history for a dat
    dat status                  get key & info about a local dat
 
+Multiple Writers:
+   dat authorize <key>         authorize another writer
+
 Dat public registries:
    dat <cmd> [<registry>]      All commands take <registry> option
    dat register                register new account

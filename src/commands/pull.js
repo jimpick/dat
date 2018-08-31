@@ -59,7 +59,6 @@ function pull (opts) {
   // Force these options for pull command
   opts.createIfMissing = false
   opts.exit = true
-  opts.legacy = true
 
   var neat = neatLog(archiveUI, { logspeed: opts.logspeed, quiet: opts.quiet, debug: opts.debug })
   neat.use(trackArchive)

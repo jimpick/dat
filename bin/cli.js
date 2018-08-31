@@ -58,6 +58,7 @@ var config = {
   },
   none: syncShorthand,
   commands: [
+    require('../src/commands/authorize'),
     require('../src/commands/clone'),
     require('../src/commands/create'),
     require('../src/commands/doctor'),
