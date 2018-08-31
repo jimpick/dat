@@ -17,6 +17,20 @@ function trackDownload (state, bus) {
 
     if (archive.db) {
       // FIXME: Need lifecycle events
+      var intervalId = setInterval(function () {
+        var stats = state.stats.get()
+        if (stats.downloaded === stats.length) {
+          // Downloaded
+          clearInterval(intervalId)
+          if (state.opts.exit) {
+            state.exiting = true
+            bus.render()
+            console.log()
+            process.exit(0)
+          }
+          state.download.nsync = true
+        }
+      }, 1000)
     } else {
       archive.content.on('clear', function () {
         debug('archive clear')
@@ -56,6 +70,7 @@ function trackDownload (state, bus) {
       }
       state.exiting = true
       bus.render()
+      console.log()
       process.exit(0)
     }
   }
