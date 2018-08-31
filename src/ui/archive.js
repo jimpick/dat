@@ -38,7 +38,8 @@ function archiveUI (state) {
   else if (stats.version === 0) title += ': (empty archive)'
   if (state.http && state.http.listening) title += `\nServing files over http at http://localhost:${state.http.port}`
 
-  if (!state.writable) {
+  if (state.dat.archive.db || !state.writable) {
+  // if (!state.writable) {
     progressView = downloadUI(state)
   } else {
     if (state.opts.import) {
