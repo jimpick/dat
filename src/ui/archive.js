@@ -28,7 +28,20 @@ function archiveUI (state) {
     title += `${keyEl(dat.key)}\n`
   }
   if (dat.archive) {
-    title += `Format: ${dat.archive.db ? 'multiwriter' : 'legacy'}\n`
+    if (dat.archive.db) {
+      title += `Format: multiwriter`
+      if (state.authorized) {
+        title += ` (${chalk.green('authorized')})`
+      }
+      if (state.authorized === false) {
+        var localKey = dat.archive.db.local.key.toString('hex')
+        title += ` (${chalk.red('not authorized')})\n`
+        title += `Local key: ${chalk.red(localKey)}`
+      }
+      title += '\n'
+    } else {
+    title += `Format: legacy (${state.writable ? 'writable' : 'read-only'})\n`
+    }
   }
   if (state.title) title += state.title
   else if (state.writable) title += 'Sharing dat'
@@ -38,8 +51,7 @@ function archiveUI (state) {
   else if (stats.version === 0) title += ': (empty archive)'
   if (state.http && state.http.listening) title += `\nServing files over http at http://localhost:${state.http.port}`
 
-  if (state.dat.archive.db || !state.writable) {
-  // if (!state.writable) {
+  if (!state.writable || state.opts.cloning) {
     progressView = downloadUI(state)
   } else {
     if (state.opts.import) {

@@ -26,6 +26,14 @@ module.exports = function (state, bus) {
     state.dat.archive.once('content', function () {
       bus.emit('archive:content')
     })
+
+    if (state.dat.archive.db) {
+      var db = state.dat.archive.db
+      db.authorized(db.local.key, function (err, authorized) {
+        if (err) throw err
+        state.authorized = authorized
+      })
+    }
   })
 
   bus.once('archive:content', function () {
