@@ -40,7 +40,7 @@ function archiveUI (state) {
       }
       title += '\n'
     } else {
-    title += `Format: legacy (${state.writable ? 'writable' : 'read-only'})\n`
+      title += `Format: legacy (${state.writable ? 'writable' : 'read-only'})\n`
     }
   }
   if (state.title) title += state.title

@@ -29,6 +29,7 @@ function authorize (opts) {
     if (err) exitErr(err)
     var remoteKey = Buffer.from(remoteKeyString, 'hex')
     Dat(opts.dir, opts, function (err, dat) {
+      if (err) exitErr(err)
       if (!dat.archive.db) {
         exitErr('dat authorize only works with multiwriter archives')
       }
